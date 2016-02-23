@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<!-- make sure we have cross-device scaling of content standard so as not to get the "shrunken" text on mobile. this meta name viewport part is totally essential for making responsive design. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  
+<link href="css/mobile.css" type="text/css" rel="stylesheet" media="screen and (min-width:1px) and (max-width:500px)" />
+  
+<link href="css/tablet.css" type="text/css" rel="stylesheet" media="screen and (min-width:501px) and (max-width:900px)" />
+  
+<link href="css/large.css" type="text/css" rel="stylesheet" media="screen and (min-width:901px) and (max-width:2048px)" />
+  
+<link href="css/print.css" type="text/css" rel="stylesheet" media="print" />
+
+
+<!-- <script src="javascript/objects.js" type="text/javascript"> </script> -->
+
+<style>
+	/* Creating media queries in CSS3*/
+  /* Typically this is the best practive due to speed. Server only has to read this document to show style */
+/*
+  @media (min-width:1px) and (max-width: 500px){
+    body{
+      width: 50%;
+      color: red;
+      background-color: green;
+      }
+  }
+    
+    
+    @media (min-width: 501px) and (max-width: 900px){
+    body{
+      width: 75%;
+      color: white;
+      background-color: black;
+    }
+    
+  }
+*/
+</style>
+  <!-- FINALLY - JQUERY!-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"> </script>
+</head>
+<body> 
+  <!--the following script uses the ready function to verify that all libraries have been loaded OK. Then we're going to grab all of the stuff in the CSS that uses the img tag and maniuplate that CSS. This is powerful: we're using JQuery to override the existing CSS!-->
+<script>
+  $("document").ready( function(){
+    //alert("jQuery is active.");
+    
+    //$("img").css("border", "3px solid green"); // <--all images selected
+    //$("img:gt(2)").css("border", "3px solid green"); // <--select all images, then apply a filter so that the border only gets applied to images whose number is greater than (gt) 2. Since we're counting from zero ("zero index"), the filter targets itmes greater than 3, not 2.
+    $("li").css("border", "3px solid green"); // <--now manipulate other stuff, like all the li tags! You can change whatever you target in your CSS.
+    $("img:nth-child(2n)").css("border", "5px solid red");// <--nth-child operations skip every nth number. for 2n, the new css wil only be applied to every other one. Good for creating table-like effects. Lists of alternating shades of greay and so on.
+    $("img").addClass("error");// <--here, we're applying a different class (error) in our CSS to something it wasn't originally designed for (img). This allows us to quickly apply different styles without having to rewrite a bunch of stuff every time.
+    //$("img").slideUp(2000); // <--and you can do JQuery animations!
+    
+  });
+  </script>
+	
+<header>
+	<h1>Gallery</h1> 
+	</header>
+	<nav id="navigation" role="navigation">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="sign-up.html">Sign Up</a></li>
+			<li><a href="gallery.html">Gallery</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</nav>
+<div id="mainContent">
+	<h1>Gallery</h1>
+	<h2>Three Mediums</h2>
+	<div class="tab-panels">
+		<ul class="tabs">
+			<li rel="drawing" class="active">drawing</li>
+			<li rel="water-color">water color</li>
+			<li rel="oil">oil</li>
+		</ul>	
+		
+		<div id="drawing" class="panel active">
+			<img src="images/drawing/thumbs/artwork_1.jpg" />
+			<img src="images/drawing/thumbs/artwork_2.jpg" />
+			<img src="images/drawing/thumbs/artwork_3.jpg" />
+			<img src="images/drawing/thumbs/artwork_4.jpg" />
+			<img src="images/drawing/thumbs/artwork_5.jpg" />
+			<img src="images/drawing/thumbs/artwork_6.jpg" />
+			<img src="images/drawing/thumbs/artwork_7.jpg" />
+			<img src="images/drawing/thumbs/artwork_8.jpg" />
+			<img src="images/drawing/thumbs/artwork_9.jpg" />
+			<img src="images/drawing/thumbs/artwork_10.jpg" />
+		</div>
+			<div id="water-color" class="panel">
+			<img src="images/watercolor/thumbs/artwork_1.jpg" />
+			<img src="images/watercolor/thumbs/artwork_2.jpg" />
+			<img src="images/watercolor/thumbs/artwork_3.jpg" />
+			<img src="images/watercolor/thumbs/artwork_4.jpg" />
+			<img src="images/watercolor/thumbs/artwork_5.jpg" />
+			<img src="images/watercolor/thumbs/artwork_6.jpg" />
+			<img src="images/watercolor/thumbs/artwork_7.jpg" />
+			<img src="images/watercolor/thumbs/artwork_8.jpg" />
+			<img src="images/watercolor/thumbs/artwork_9.jpg" />
+			<img src="images/watercolor/thumbs/artwork_10.jpg" />
+		</div>
+		<div id="oil" class="panel">
+			<img src="images/oil/thumbs/artwork_1.jpg" />
+			<img src="images/oil/thumbs/artwork_2.jpg" />
+			<img src="images/oil/thumbs/artwork_3.jpg" />
+			<img src="images/oil/thumbs/artwork_4.jpg" />
+			<img src="images/oil/thumbs/artwork_5.jpg" />
+			<img src="images/oil/thumbs/artwork_6.jpg" />
+			<img src="images/oil/thumbs/artwork_7.jpg" />
+			<img src="images/oil/thumbs/artwork_8.jpg" />
+		</div>
+	</div><!--closing tab-panels -->
+
+</div><!-- closing primaryContent   -->
+
+<footer>
+	<p class="odd">
+		&copy; Copyright  by jason zeringue
+	</p>
+</footer>
+
+</body>
+</html>
